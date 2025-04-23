@@ -27,9 +27,9 @@ const About = () => {
       exit="exit"
       className='w-full'
     >
-      <div className=" relative px-[25%] w-full">
+      <div className=" relative px-[22%] md:px-[25%] w-full">
         <div className="mb-12">
-          <h1 className='text-3xl lg:text-4xl font-bold mb-4'>ABOUT</h1>
+          <h1 className='text-3xl lg:text-4xl font-bold leading-none mb-4'>ABOUT</h1>
           <Lottie lottieRef={lottieRef}
             className='absolute pt-1 left-0 top-0 right-0'
             animationData={athlete3}

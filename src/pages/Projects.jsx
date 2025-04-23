@@ -55,9 +55,9 @@ const Projects = () => {
 
   return (
     <motion.section variants={pageVariants} initial="initial" animate="animate" exit="exit" className='w-full'>
-      <div className=" relative px-[25%] w-full">
+      <div className=" relative mx-auto px-[22%] md:px-[25%] w-full">
         <div className="mb-12">
-          <h1 className='text-3xl lg:text-4xl font-bold mb-4'>PROJECTs</h1>
+          <h1 className='text-3xl lg:text-4xl leading-none font-bold mb-4'>PROJECTs</h1>
           <p className='text-xl'>Cool stuff i got to work on over the years</p>
           <Lottie lottieRef={lottieRef}
             className='absolute pt-1 left-0 top-0 right-0'
@@ -76,15 +76,13 @@ const Projects = () => {
               <div className='flex gap-2'>
                 <p>Stack:</p>
                 {project.stack.map((tool, index) => (
-                  <p key={index} className='mr-3'>{tool}</p>
+                  <p key={index} className='max-mobile:text-sm mr-3'>{tool}</p>
                 ))}
               </div>
             </div>
           ))}
         </div>
-        <div className="w-max mx-auto">
-          <p className=''>Want to chat about a project or job opportunity? Just drop me a line at yinkajunaid@ymail.com</p>
-        </div>
+        <p className=''>Want to chat about a project or job opportunity? Just drop me a line at yinkajunaid@ymail.com</p>
       </div>
     </motion.section>
   )
