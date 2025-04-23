@@ -15,7 +15,7 @@ const Footer = () => {
                     <Link className='underline'>Twitter</Link>
                 </li>
                 <li>
-                    <Link className='underline'>Hashnode</Link>
+                    <Link className='underline' to={'https://adeyinka.hashnode.dev/'}>Hashnode</Link>
                 </li>
             </ul>
         </footer>

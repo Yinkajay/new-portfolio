@@ -63,8 +63,6 @@ const Loader = () => {
                             }}
                         />
                     </div>
-
-
                 </div>
             </main>
         </div >

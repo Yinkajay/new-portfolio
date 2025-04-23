@@ -1,5 +1,10 @@
+@import url('https://fonts.googleapis.com/css2?family=Darker+Grotesque:wght@300..900&display=swap');
 @import "tailwindcss";
 
 @theme {
     --breakpoint-mobile: 600px;
+  }
+
+  body{
+    font-family: "Darker Grotesque", sans-serif;
   }

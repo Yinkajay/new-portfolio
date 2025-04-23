@@ -33,29 +33,3 @@ export default function App() {
     </BrowserRouter>
   )
 }
-  
-// import { createBrowserRouter, RouterProvider } from 'react-router-dom'
-// import './App.css'
-// import Layout from './components/Layout'
-// import Home from './pages/Home'
-// import About from './pages/About'
-// import Projects from './pages/Projects'
-// import Loader from './pages/Loader'
-
-// const router = createBrowserRouter([
-//   { index: true, element: <Loader /> },
-//   {
-//     element: <Layout />,
-//     children: [
-//       { path: '/home', element: <Home /> },
-//       { path: '/about', element: <About /> },
-//       { path: '/projects', element: <Projects /> }
-//     ]
-//   }
-// ])
-
-// function App() {
-//   return <RouterProvider router={router} />
-// }
-
-// export default App

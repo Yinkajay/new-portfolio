@@ -1,3 +1,6 @@
 body {
     cursor: url('/cursor.png') 8 8, auto;
   }
+  a, button, [role="button"] {
+    cursor: url('/cursor2.png') 8 8, pointer;
+  }

@@ -4,6 +4,7 @@ import Lottie from 'lottie-react'
 import swing from '../assets/animations/swing.json'
 import athlete3 from '../assets/animations/athlete3.json'
 import { Link } from 'react-router-dom'
+import { useRef, useState, useEffect } from "react"
 
 const pageVariants = {
     initial: { opacity: 0, y: 0 },
@@ -12,14 +13,34 @@ const pageVariants = {
 };
 
 const Home = () => {
-    console.log(window.innerWidth)
-    console.log(window.innerHeight)
+    const lottieRef = useRef(null);
+    
+    useEffect(() => {
+        const hasPlayedBefore = sessionStorage.getItem('athleteAnimationPlayed');
+        
+        if (lottieRef.current) {
+            if (hasPlayedBefore === 'true') {
+                lottieRef.current.goToAndStop(athlete3.op - 1, true);
+            } else {
+                lottieRef.current.play();
+                sessionStorage.setItem('athleteAnimationPlayed', 'true');
+            }
+        }
+    }, []);
+
     return (
-        <motion.div variants={pageVariants} initial="initial" animate="animate" exit="exit" className='bg-whie w-full'>
+        <motion.div variants={pageVariants} initial="initial" animate="animate" exit="exit" className='bg-whte w-full'>
             <div className="relative mx-auto px-[22%] md:px-[25%] w-full">
                 <div className="mb-8">
-                    <h1 className='text-3xl font-bold leading-none'>YINX.</h1>
-                    <Lottie className='absolute pt-1 left-0 top-0 right-0' autoPlay={false} animationData={athlete3} loop={false} style={{ ackgroundColor: 'rgba(100,400,100,0.3)' }} />
+                    <h1 className='text-3xl lg:text-4xl font-bold leading-none'>YINX.</h1>
+                    <Lottie 
+                        lottieRef={lottieRef}
+                        className='absolute pt-1 left-0 top-0 right-0' 
+                        animationData={athlete3} 
+                        loop={false}
+                        autoplay={false}
+                        style={{ ackgroundColor: 'rgba(100,400,100,0.3)' }} 
+                    />
                 </div>
                 <p>Frontend Engineer who loves building cool stuff.</p>
 
@@ -37,9 +58,7 @@ const Home = () => {
                         <li>Git</li>
                     </ul>
                 </div>
-                
-
-                <Link className='underline'>LOOK AT MY CV</Link>
+                <Link className='underline' to={''}>LOOK AT MY CV</Link>
             </div>
         </motion.div>
     )
