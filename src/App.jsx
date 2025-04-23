@@ -1,22 +1,61 @@
-import { createBrowserRouter, RouterProvider } from 'react-router-dom'
+// App.jsx
 import './App.css'
-import Layout from './components/Layout'
+import { BrowserRouter, Routes, Route, useLocation } from 'react-router-dom'
+// import { AnimatePresence } from 'framer-motion'
+import { AnimatePresence } from 'motion/react'
 import Home from './pages/Home'
 import About from './pages/About'
 import Projects from './pages/Projects'
+import Layout from './components/Layout'
+import Loader from './pages/Loader'
 
-const router = createBrowserRouter([
-  {path: '/', element: <Layout />,
-    children:[
-      {path: '/', element: <Home />},
-      {path: '/about', element: <About />},
-      {path: '/projects', element: <Projects />}
-    ]
-  }
-])
+const AnimatedRoutes = () => {
+  const location = useLocation()
 
-function App() {
-  return <RouterProvider router={router} />
+  return (
+    <AnimatePresence mode="wait" >
+      <Routes location={location} key={location.pathname}>
+        <Route index element={<Loader />} exit={{ opacity: 0 }} />
+        <Route element={<Layout />}>
+          <Route path="/home" element={<Home />} />
+          <Route path="/about" element={<About />} />
+          <Route path="/projects" element={<Projects />} />
+        </Route>
+      </Routes>
+    </AnimatePresence>
+  )
 }
 
-export default App
+export default function App() {
+  return (
+    <BrowserRouter>
+      <AnimatedRoutes />
+    </BrowserRouter>
+  )
+}
+  
+// import { createBrowserRouter, RouterProvider } from 'react-router-dom'
+// import './App.css'
+// import Layout from './components/Layout'
+// import Home from './pages/Home'
+// import About from './pages/About'
+// import Projects from './pages/Projects'
+// import Loader from './pages/Loader'
+
+// const router = createBrowserRouter([
+//   { index: true, element: <Loader /> },
+//   {
+//     element: <Layout />,
+//     children: [
+//       { path: '/home', element: <Home /> },
+//       { path: '/about', element: <About /> },
+//       { path: '/projects', element: <Projects /> }
+//     ]
+//   }
+// ])
+
+// function App() {
+//   return <RouterProvider router={router} />
+// }
+
+// export default App
