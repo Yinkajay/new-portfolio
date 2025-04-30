@@ -60,7 +60,7 @@ const Projects = () => {
           <h1 className='text-3xl lg:text-4xl leading-none font-bold mb-4'>PROJECTs</h1>
           <p className='text-xl'>Cool stuff i got to work on over the years</p>
           <Lottie lottieRef={lottieRef}
-            className='absolute pt-1 left-0 top-0 right-0'
+            className='absolute pt-1 left-0 top-0 right-0 pointer-events-none'
             animationData={athlete3}
             loop={false}
             autoplay={false}

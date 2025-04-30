@@ -19,7 +19,7 @@ const Footer = () => {
                 </li>
             </ul>
             <div className="max-mobile:mx-auto">
-                <p>Designed: <span className='underline'> mothecreator </span></p>
+                <p>Designed: <span className='underline'><Link to='https://mojola.notion.site/Mojola-Ojoniyi-5012964d6a1c4f958780a9d4e31a3cbe?pvs=4'>mothecreator </Link></span></p>
             </div>
         </footer>
     )

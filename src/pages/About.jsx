@@ -31,14 +31,15 @@ const About = () => {
         <div className="mb-12">
           <h1 className='text-3xl lg:text-4xl font-bold leading-none mb-4'>ABOUT</h1>
           <Lottie lottieRef={lottieRef}
-            className='absolute pt-1 left-0 top-0 right-0'
+            className='absolute pt-1 left-0 top-0 right-0 pointer-events-none'
             animationData={athlete3}
             loop={false}
             autoplay={false}
             style={{ ackgroundColor: 'rgba(100,400,100,0.3)' }} />
           <p className='text-xl'>Who i am & What i get up to</p>
-          <p className='text-xl'>When I'm not glued to my keyboard, you'll find me binge-watching anime (currently obsessed with Jujutsu Kaisen), cheering for Arsenal through the highs and lows, or getting way too competitive in video games</p>
-          <p className='text-xl'> I'm also a huge music nerd – everything from discovering obscure indie bands to creating coding playlists that keep me in the zone. Nothing beats solving a tough bug while blasting the perfect track.</p>
+          <p className='text-xl'>Outside of writing code, I enjoy staying active and mentally sharp through activities like reading, running, and exploring new ideas on YouTube. I'm passionate about continuous learning, whether it's diving into a new JavaScript framework or watching a breakdown of user behavior in digital products.</p>
+          <p className='text-xl'>Music is a big part of my routine. I’m always curating playlists that help me stay focused and creative during long coding sessions. Whether it's ambient instrumentals or low-fi beats, the right track helps me get into a productive flow. I bring that same energy and curiosity into every project I work on. I’m always looking to improve, stay adaptable, and build things that make a real impact.
+</p>
         </div>
       </div>
     </motion.div>
