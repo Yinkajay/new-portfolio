@@ -53,8 +53,12 @@ const Home = () => {
                     <ul className='flex gap-3'>
                         <li>Stack:</li>
                         <li>React</li>
+                        <li>React Native </li>
+                        <li>Node</li>
                         <li>Javascript</li>
                         <li>HTML & CSS</li>
+                        <li>Vue</li>
+                        <li>Figma</li>
                         <li>Git</li>
                     </ul>
                 </div>
