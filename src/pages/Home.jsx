@@ -49,8 +49,10 @@ const Home = () => {
                     <p>I’m always looking to improve my skills and stay up to date with the latest in frontend technologies and best practices. Outside of work, you’ll usually find me reading books, going for a run to clear my mind, or diving into YouTube to learn something new, whether it's a design principle, a coding concept, or a productivity tip.</p>
                 </div>
 
-                <div className="mb-8 -ml-[10%] md:-ml-[15%]">
-                    <ul className='flex gap-3'>
+
+
+                <div className="mb-8 -ml-[10%] md:-ml-[15%] ">
+                    <ul className='flex gap-3 bg-amer-400 flex-wrap'>
                         <li>Stack:</li>
                         <li>React</li>
                         <li>React Native </li>

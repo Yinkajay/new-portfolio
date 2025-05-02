@@ -73,10 +73,10 @@ const Projects = () => {
                 <Link className='underline text-xl mr-3 uppercase' to={project.livesite}>{project.title}</Link>
                 {project.repo !== '' && <Link className='underline' to={project.repo}>repository</Link>}
               </div>
-              <div className='flex gap-2 -ml-[10%] md:-ml-[14%]'>
+              <div className='flex flex-wrap bg-amer-400 items-center gap-2 -ml-[10%] md:-ml-[14%]'>
                 <p>Stack:</p>
                 {project.stack.map((tool, index) => (
-                  <p key={index} className='max-mobile:text-sm mr-2 md:mr-3'>{tool}</p>
+                  <p key={index} className=' max-mobile:text-sm mr-2 md:mr-3'>{tool}</p>
                 ))}
               </div>
             </div>
