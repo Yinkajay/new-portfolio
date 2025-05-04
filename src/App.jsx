@@ -8,6 +8,7 @@ import About from './pages/About'
 import Projects from './pages/Projects'
 import Layout from './components/Layout'
 import Loader from './pages/Loader'
+import Banana from './pages/Banana'
 
 const AnimatedRoutes = () => {
   const location = useLocation()
@@ -20,6 +21,7 @@ const AnimatedRoutes = () => {
           <Route path="/home" element={<Home />} />
           <Route path="/about" element={<About />} />
           <Route path="/projects" element={<Projects />} />
+          <Route path="/banana" element={<Banana />} />
         </Route>
       </Routes>
     </AnimatePresence>

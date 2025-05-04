@@ -4,12 +4,11 @@ import swing from '../assets/animations/swing.json'
 import athlete3 from '../assets/animations/athlete3.json'
 import { useEffect, useRef } from 'react'
 
-const variants = {
-  initial: { x: '-100vw', opacity: 1 },
-  animate: { x: 0, opacity: 1, transition: { duration: 1 } },
-  exit: { x: '-100vw', opacity: 0, transition: { duration: 1 } }
-}
-
+const pageVariants = {
+  initial: { opacity: 0, y: 0 },
+  animate: { opacity: 1, y: 0, transition: { duration: 0.5 } },
+  exit: {  opacity: 0, transition: { duration: 1 } }
+};
 const About = () => {
   const lottieRef = useRef()
 
@@ -21,7 +20,7 @@ const About = () => {
 
   return (
     <motion.div
-      variants={variants}
+      variants={pageVariants}
       initial="initial"
       animate="animate"
       exit="exit"
