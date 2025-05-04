@@ -1,7 +1,7 @@
 import { motion } from "motion/react"
 import Lottie from 'lottie-react'
 import swing from '../assets/animations/swing.json'
-import athlete3 from '../assets/animations/athlete3.json'
+import athlete4 from '../assets/animations/athlete4.json'
 import { useEffect, useRef } from 'react'
 
 const pageVariants = {
@@ -13,7 +13,7 @@ const About = () => {
   const lottieRef = useRef()
 
   useEffect(() => {
-    if (lottieRef.current) lottieRef.current.goToAndStop(athlete3.op - 1, true)
+    if (lottieRef.current) lottieRef.current.goToAndStop(athlete4.op - 1, true)
 
   }, [])
 
@@ -31,7 +31,7 @@ const About = () => {
           <h1 className='text-3xl lg:text-4xl font-bold leading-none mb-4'>ABOUT</h1>
           <Lottie lottieRef={lottieRef}
             className='absolute pt-1 left-0 top-0 right-0 pointer-events-none'
-            animationData={athlete3}
+            animationData={athlete4}
             loop={false}
             autoplay={false}
             style={{ ackgroundColor: 'rgba(100,400,100,0.3)' }} />

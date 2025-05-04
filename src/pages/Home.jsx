@@ -2,7 +2,7 @@ import { motion } from "motion/react"
 // import { motion } from 'framer-motion'
 import Lottie from 'lottie-react'
 import swing from '../assets/animations/swing.json'
-import athlete3 from '../assets/animations/athlete3.json'
+import athlete4 from '../assets/animations/athlete4.json'
 import { Link } from 'react-router-dom'
 import { useRef, useState, useEffect } from "react"
 
@@ -20,7 +20,7 @@ const Home = () => {
         
         if (lottieRef.current) {
             if (hasPlayedBefore === 'true') {
-                lottieRef.current.goToAndStop(athlete3.op - 1, true);
+                lottieRef.current.goToAndStop(athlete4.op - 1, true);
             } else {
                 lottieRef.current.play();
                 sessionStorage.setItem('athleteAnimationPlayed', 'true');
@@ -36,7 +36,7 @@ const Home = () => {
                     <Lottie 
                         lottieRef={lottieRef}
                         className='absolute pt-1 left-0 top-0 right-0 pointer-events-none' 
-                        animationData={athlete3} 
+                        animationData={athlete4} 
                         loop={false}
                         autoplay={false}
                         style={{ ackgroundColor: 'rgba(100,400,100,0.3)' }} 
