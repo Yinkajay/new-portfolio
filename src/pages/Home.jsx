@@ -1,8 +1,7 @@
 import { motion } from "motion/react"
-// import { motion } from 'framer-motion'
 import Lottie from 'lottie-react'
-import swing from '../assets/animations/swing.json'
 import athlete4 from '../assets/animations/athlete4.json'
+import mobileathlete2 from '../assets/animations/mobileathlete2.json'
 import { Link } from 'react-router-dom'
 import { useRef, useState, useEffect } from "react"
 
@@ -13,14 +12,24 @@ const pageVariants = {
 };
 
 const Home = () => {
+    const [width, setWidth] = useState(window.innerWidth);
     const lottieRef = useRef(null);
+
+    const animationToPlay = width > 600 ? athlete4 : mobileathlete2
     
+    useEffect(() => {
+        const handleResize = () => setWidth(window.innerWidth);
+        window.addEventListener("resize", handleResize);
+    
+        return () => window.removeEventListener("resize", handleResize);
+      }, []);
+
     useEffect(() => {
         const hasPlayedBefore = sessionStorage.getItem('athleteAnimationPlayed');
         
         if (lottieRef.current) {
             if (hasPlayedBefore === 'true') {
-                lottieRef.current.goToAndStop(athlete4.op - 1, true);
+                lottieRef.current.goToAndStop(animationToPlay.op - 1, true);
             } else {
                 lottieRef.current.play();
                 sessionStorage.setItem('athleteAnimationPlayed', 'true');
@@ -32,11 +41,11 @@ const Home = () => {
         <motion.div variants={pageVariants} initial="initial" animate="animate" exit="exit" className='bg-whte w-full'>
             <div className="relative mx-auto px-[22%] md:px-[25%] w-full">
                 <div className="mb-8">
-                    <h1 className='text-3xl lg:text-4xl font-bold leading-none'>YINX.</h1>
+                    <h1 className='text-3xl max-mobile:relative max-mobile:-top-[3px] lg:text-4xl font-bold leading-none'>YINX.</h1>
                     <Lottie 
                         lottieRef={lottieRef}
                         className='absolute pt-1 left-0 top-0 right-0 pointer-events-none' 
-                        animationData={athlete4} 
+                        animationData={animationToPlay} 
                         loop={false}
                         autoplay={false}
                         style={{ ackgroundColor: 'rgba(100,400,100,0.3)' }} 

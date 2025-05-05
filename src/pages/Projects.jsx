@@ -2,20 +2,31 @@ import { Link } from 'react-router-dom'
 import { motion } from "motion/react"
 import Lottie from 'lottie-react';
 import athlete4 from '../assets/animations/athlete4.json'
-import { useEffect, useRef } from 'react';
+import mobileathlete2 from '../assets/animations/mobileathlete2.json'
+import { useEffect, useRef, useState } from 'react';
 
 
 const pageVariants = {
   initial: { opacity: 0, y: 0 },
   animate: { opacity: 1, y: 0, transition: { duration: 0.5 } },
-  exit: {  opacity: 0, transition: { duration: 1 } }
+  exit: { opacity: 0, transition: { duration: 1 } }
 };
 
 const Projects = () => {
+  const [width, setWidth] = useState(window.innerWidth);
   const lottieRef = useRef()
 
+  const animationToPlay = width > 600 ? athlete4 : mobileathlete2
+
   useEffect(() => {
-    if (lottieRef.current) lottieRef.current.goToAndStop(athlete4.op - 1, true)
+    const handleResize = () => setWidth(window.innerWidth);
+    window.addEventListener("resize", handleResize);
+
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
+
+  useEffect(() => {
+    if (lottieRef.current) lottieRef.current.goToAndStop(animationToPlay.op - 1, true)
 
   }, [])
 
@@ -57,11 +68,11 @@ const Projects = () => {
     <motion.section variants={pageVariants} initial="initial" animate="animate" exit="exit" className='w-full'>
       <div className=" relative mx-auto px-[22%] md:px-[25%] w-full">
         <div className="mb-12">
-          <h1 className='text-3xl lg:text-4xl leading-none font-bold mb-4'>PROJECTs</h1>
+          <h1 className='text-3xl max-mobile:relative max-mobile:-top-[3px] lg:text-4xl leading-none font-bold mb-4'>PROJECTs</h1>
           <p className='text-xl'>Cool stuff i got to work on over the years</p>
           <Lottie lottieRef={lottieRef}
             className='absolute pt-1 left-0 top-0 right-0 pointer-events-none'
-            animationData={athlete4}
+            animationData={animationToPlay}
             loop={false}
             autoplay={false}
             style={{ ackgroundColor: 'rgba(100,400,100,0.3)' }} />

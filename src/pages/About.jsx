@@ -1,19 +1,29 @@
 import { motion } from "motion/react"
 import Lottie from 'lottie-react'
-import swing from '../assets/animations/swing.json'
 import athlete4 from '../assets/animations/athlete4.json'
-import { useEffect, useRef } from 'react'
+import mobileathlete2 from '../assets/animations/mobileathlete2.json'
+import { useEffect, useRef, useState } from 'react'
 
 const pageVariants = {
   initial: { opacity: 0, y: 0 },
   animate: { opacity: 1, y: 0, transition: { duration: 0.5 } },
-  exit: {  opacity: 0, transition: { duration: 1 } }
+  exit: { opacity: 0, transition: { duration: 1 } }
 };
 const About = () => {
+  const [width, setWidth] = useState(window.innerWidth);
   const lottieRef = useRef()
 
+  const animationToPlay = width > 600 ? athlete4 : mobileathlete2
+
   useEffect(() => {
-    if (lottieRef.current) lottieRef.current.goToAndStop(athlete4.op - 1, true)
+    const handleResize = () => setWidth(window.innerWidth);
+    window.addEventListener("resize", handleResize);
+
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
+
+  useEffect(() => {
+    if (lottieRef.current) lottieRef.current.goToAndStop(animationToPlay.op - 1, true)
 
   }, [])
 
@@ -31,14 +41,14 @@ const About = () => {
           <h1 className='text-3xl lg:text-4xl font-bold leading-none mb-4'>ABOUT</h1>
           <Lottie lottieRef={lottieRef}
             className='absolute pt-1 left-0 top-0 right-0 pointer-events-none'
-            animationData={athlete4}
+            animationData={animationToPlay}
             loop={false}
             autoplay={false}
             style={{ ackgroundColor: 'rgba(100,400,100,0.3)' }} />
           <p className='text-2xl mb-2'>Who i am & What i get up to</p>
           <p className='text-lg'>Outside of writing code, I enjoy staying active and mentally sharp through activities like reading, running, and exploring new ideas on YouTube. I'm passionate about continuous learning, whether it's diving into a new JavaScript framework or watching a breakdown of user behavior in digital products.</p>
           <p className='text-lg'>Music is a big part of my routine. I’m always curating playlists that help me stay focused and creative during long coding sessions. Whether it's ambient instrumentals or low-fi beats, the right track helps me get into a productive flow. I bring that same energy and curiosity into every project I work on. I’m always looking to improve, stay adaptable, and build things that make a real impact.
-</p>
+          </p>
         </div>
       </div>
     </motion.div>
