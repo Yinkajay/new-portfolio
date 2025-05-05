@@ -1,8 +1,8 @@
 import { Link } from 'react-router-dom'
 import { motion } from "motion/react"
 import Lottie from 'lottie-react';
-import athlete4 from '../assets/animations/athlete4.json'
-import mobileathlete2 from '../assets/animations/mobileathlete2.json'
+import athlete from '../assets/animations/athlete.json'
+import mobileathlete from '../assets/animations/mobileathlete.json'
 import { useEffect, useRef, useState } from 'react';
 
 
@@ -16,7 +16,7 @@ const Projects = () => {
   const [width, setWidth] = useState(window.innerWidth);
   const lottieRef = useRef()
 
-  const animationToPlay = width > 600 ? athlete4 : mobileathlete2
+  const animationToPlay = width > 600 ? athlete : mobileathlete
 
   useEffect(() => {
     const handleResize = () => setWidth(window.innerWidth);
@@ -66,8 +66,8 @@ const Projects = () => {
 
   return (
     <motion.section variants={pageVariants} initial="initial" animate="animate" exit="exit" className='w-full'>
-      <div className=" relative mx-auto px-[22%] md:px-[25%] w-full">
-        <div className="mb-12">
+      <div className=" relative mx-auto pl-[19%] pr-[10%] md:px-[25%] w-full">
+        <div className="mb-8">
           <h1 className='text-3xl max-mobile:relative max-mobile:-top-[3px] lg:text-4xl leading-none font-bold mb-4'>PROJECTs</h1>
           <p className='text-xl'>Cool stuff i got to work on over the years</p>
           <Lottie lottieRef={lottieRef}
@@ -82,12 +82,16 @@ const Projects = () => {
             <div key={index} className='mb-6'>
               <div key={index} className="mb-2">
                 <Link className='underline text-xl mr-3 uppercase' to={project.livesite}>{project.title}</Link>
-                {project.repo !== '' && <Link className='underline' to={project.repo}>repository</Link>}
+                {project.repo !== '' && (
+                  <div className="">
+                    <Link className='underline' to={project.repo}>repository</Link>
+                  </div>
+                )}
               </div>
-              <div className='flex flex-wrap bg-amer-400 items-center gap-2 -ml-[10%] md:-ml-[14%]'>
+              <div className='flex flex-wrap bg-amer-400 items-center gap-2 -ml-[8%] md:-ml-[14%]'>
                 <p>Stack:</p>
                 {project.stack.map((tool, index) => (
-                  <p key={index} className=' max-mobile:text-sm mr-2 md:mr-3'>{tool}</p>
+                  <p key={index} className='bg-[#1a1a1a] py-[2px] px-2 shadow-2xl rounded-full max-mobile:text-sm md:mr-3'>{tool}</p>
                 ))}
               </div>
             </div>

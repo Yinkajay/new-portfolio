@@ -1,7 +1,7 @@
 import { motion } from "motion/react"
 import Lottie from 'lottie-react'
-import athlete4 from '../assets/animations/athlete4.json'
-import mobileathlete2 from '../assets/animations/mobileathlete2.json'
+import athlete from '../assets/animations/athlete.json'
+import mobileathlete from '../assets/animations/mobileathlete.json'
 import { Link } from 'react-router-dom'
 import { useRef, useState, useEffect } from "react"
 
@@ -15,7 +15,7 @@ const Home = () => {
     const [width, setWidth] = useState(window.innerWidth);
     const lottieRef = useRef(null);
 
-    const animationToPlay = width > 600 ? athlete4 : mobileathlete2
+    const animationToPlay = width > 600 ? athlete : mobileathlete
     
     useEffect(() => {
         const handleResize = () => setWidth(window.innerWidth);
@@ -39,7 +39,7 @@ const Home = () => {
 
     return (
         <motion.div variants={pageVariants} initial="initial" animate="animate" exit="exit" className='bg-whte w-full'>
-            <div className="relative mx-auto px-[22%] md:px-[25%] w-full">
+            <div className="relative mx-auto pl-[19%] pr-[12%] md:px-[25%] w-full">
                 <div className="mb-8">
                     <h1 className='text-3xl max-mobile:relative max-mobile:-top-[3px] lg:text-4xl font-bold leading-none'>YINX.</h1>
                     <Lottie 
@@ -62,15 +62,15 @@ const Home = () => {
 
                 <div className="mb-8 -ml-[10%] md:-ml-[15%] ">
                     <ul className='flex gap-3 bg-amer-400 flex-wrap'>
-                        <li>Stack:</li>
-                        <li>React</li>
-                        <li>React Native </li>
-                        <li>Node</li>
-                        <li>Javascript</li>
-                        <li>HTML & CSS</li>
-                        <li>Vue</li>
-                        <li>Figma</li>
-                        <li>Git</li>
+                        <li className="">Stack:</li>
+                        <li className="bg-[#1a1a1a] max-mobile:text-sm py-[2px] px-2 shadow-2xl rounded-full">React</li>
+                        <li className="bg-[#1a1a1a] max-mobile:text-sm py-[2px] px-2 shadow-2xl rounded-full">React Native </li>
+                        <li className="bg-[#1a1a1a] max-mobile:text-sm py-[2px] px-2 shadow-2xl rounded-full">Node</li>
+                        <li className="bg-[#1a1a1a] max-mobile:text-sm py-[2px] px-2 shadow-2xl rounded-full">Javascript</li>
+                        <li className="bg-[#1a1a1a] max-mobile:text-sm py-[2px] px-2 shadow-2xl rounded-full">HTML & CSS</li>
+                        <li className="bg-[#1a1a1a] max-mobile:text-sm py-[2px] px-2 shadow-2xl rounded-full">Vue</li>
+                        <li className="bg-[#1a1a1a] max-mobile:text-sm py-[2px] px-2 shadow-2xl rounded-full">Figma</li>
+                        <li className="bg-[#1a1a1a] max-mobile:text-sm py-[2px] px-2 shadow-2xl rounded-full">Git</li>
                     </ul>
                 </div>
                 <Link className='underline' to='https://docs.google.com/document/d/1TOEhoPabfB1uKbiNEBdMuTKcSPwBbhK_2LTiQo95RiQ/edit?tab=t.0'>LOOK AT MY CV</Link>

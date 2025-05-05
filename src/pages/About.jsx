@@ -1,7 +1,7 @@
 import { motion } from "motion/react"
 import Lottie from 'lottie-react'
-import athlete4 from '../assets/animations/athlete4.json'
-import mobileathlete2 from '../assets/animations/mobileathlete2.json'
+import athlete from '../assets/animations/athlete.json'
+import mobileathlete from '../assets/animations/mobileathlete.json'
 import { useEffect, useRef, useState } from 'react'
 
 const pageVariants = {
@@ -13,7 +13,7 @@ const About = () => {
   const [width, setWidth] = useState(window.innerWidth);
   const lottieRef = useRef()
 
-  const animationToPlay = width > 600 ? athlete4 : mobileathlete2
+  const animationToPlay = width > 600 ? athlete : mobileathlete
 
   useEffect(() => {
     const handleResize = () => setWidth(window.innerWidth);
@@ -36,9 +36,9 @@ const About = () => {
       exit="exit"
       className='w-full'
     >
-      <div className=" relative px-[22%] md:px-[25%] w-full">
+      <div className=" relative pl-[19%] pr-[10%]  md:px-[25%] w-full">
         <div className="mb-12">
-          <h1 className='text-3xl lg:text-4xl font-bold leading-none mb-4'>ABOUT</h1>
+          <h1 className='text-3xl lg:text-4xl max-mobile:relative max-mobile:-top-[3px] font-bold leading-none mb-4'>ABOUT</h1>
           <Lottie lottieRef={lottieRef}
             className='absolute pt-1 left-0 top-0 right-0 pointer-events-none'
             animationData={animationToPlay}
