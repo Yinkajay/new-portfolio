@@ -51,9 +51,9 @@ const Home = () => {
                         style={{ ackgroundColor: 'rgba(100,400,100,0.3)' }} 
                     />
                 </div>
-                <p>Frontend Engineer who loves building cool stuff.</p>
+                <p className="lg:text-lg">Frontend Engineer who loves building cool stuff.</p>
 
-                <div className="mb-8">
+                <div className="mb-8 lg:text-lg">
                     <p className='mb-8'>Hey, I’m Yinka, a frontend engineer with 2 years of hands-on experience designing and developing modern, responsive websites and web applications. I specialize in turning complex ideas into clean, user-friendly interfaces that not only look great but work flawlessly across devices. My approach blends thoughtful design, accessibility, and clean, maintainable code to build solutions that users genuinely enjoy.</p>
                     <p>I’m always looking to improve my skills and stay up to date with the latest in frontend technologies and best practices. Outside of work, you’ll usually find me reading books, going for a run to clear my mind, or diving into YouTube to learn something new, whether it's a design principle, a coding concept, or a productivity tip.</p>
                 </div>
