@@ -73,7 +73,7 @@ const Home = () => {
                         <li className="bg-[#1a1a1a] max-mobile:text-sm py-[2px] px-2 shadow-2xl rounded-full">Git</li>
                     </ul>
                 </div>
-                <Link className='underline' to='https://docs.google.com/document/d/1TOEhoPabfB1uKbiNEBdMuTKcSPwBbhK_2LTiQo95RiQ/edit?tab=t.0'>LOOK AT MY CV</Link>
+                <Link className='underline' to='https://docs.google.com/document/d/1G9KDmwkUBLW0TzVpSFavC_oDN-7F_Pwe09aKfbvkJcA/edit?tab=t.0'>LOOK AT MY CV</Link>
             </div>
         </motion.div>
     )
