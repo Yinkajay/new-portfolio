@@ -60,7 +60,7 @@ const Home = () => {
 
 
 
-                <div className="mb-8 -ml-[10%] md:-ml-[15%] ">
+                <div className="mb-8">
                     <ul className='flex gap-3 bg-amer-400 flex-wrap'>
                         <li className="">Stack:</li>
                         <li className="bg-[#1a1a1a] max-mobile:text-sm py-[2px] px-2 shadow-2xl rounded-full">React</li>

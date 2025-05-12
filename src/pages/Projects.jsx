@@ -88,7 +88,7 @@ const Projects = () => {
                   </div>
                 )}
               </div>
-              <div className='flex flex-wrap bg-amer-400 items-center gap-2 -ml-[8%] md:-ml-[14%]'>
+              <div className='flex flex-wrap bg-amer-400 items-center gap-2 '>
                 <p>Stack:</p>
                 {project.stack.map((tool, index) => (
                   <p key={index} className='bg-[#1a1a1a] py-[2px] px-2 shadow-2xl rounded-full max-mobile:text-sm md:mr-3'>{tool}</p>
