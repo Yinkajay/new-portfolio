@@ -34,7 +34,7 @@ const Projects = () => {
   const projects = [
     {
       title: "BLOODY CIVILIAN FANSITE",
-      stack: ["React", "Framer motion", "Javascript", "HTML & CSS", "Git"],
+      stack: ["Next", "Framer motion", "Javascript", "HTML & CSS", "Git"],
       livesite: "https://bloooooddyyyyy.netlify.app/",
       repo: "https://github.com/Yinkajay/bloody-civ"
     },
@@ -46,7 +46,7 @@ const Projects = () => {
     },
     {
       title: "Creative Studio Wesbite",
-      stack: ["React", "Javascript", "HTML & CSS", "Git"],
+      stack: ["Next", "Javascript", "HTML & CSS", "Git"],
       livesite: "https://mcmstudio.markcalthers.com/services",
       repo: ""
     },
@@ -59,7 +59,7 @@ const Projects = () => {
     {
       title: "Call Center Agency",
       stack: ["React", "Javascript", "HTML & CSS", "Git"],
-      livesite: "https://shoppa-app-vue3.web.app/login",
+      livesite: "https://markcalthersconnect.netlify.app/",
       repo: ""
     }
   ];
