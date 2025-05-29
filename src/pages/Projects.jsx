@@ -59,7 +59,7 @@ const Projects = () => {
     {
       title: "Call Center Agency",
       stack: ["React", "Javascript", "HTML & CSS", "Git"],
-      livesite: "https://markcalthersconnect.netlify.app/",
+      livesite: "https://connect.markcalthers.com",
       repo: ""
     }
   ];
