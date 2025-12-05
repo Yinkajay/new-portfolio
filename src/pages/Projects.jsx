@@ -33,6 +33,18 @@ const Projects = () => {
 
   const projects = [
     {
+      title: "Jobs Lounge",
+      stack: ["Next", "Framer motion", "Figma", "Git"],
+      livesite: "https://jobslounge.markcalthers.com/",
+      repo: ""
+    },
+    {
+      title: "Craftbox AI",
+      stack: ["Next", "Framer motion", "Typescript", "Git"],
+      livesite: "https://craftbox-rho.vercel.app/",
+      repo: "https://github.com/Yinkajay/new-portfolio"
+    },
+    {
       title: "BLOODY CIVILIAN FANSITE",
       stack: ["Next", "Framer motion", "Javascript", "HTML & CSS", "Git"],
       livesite: "https://bloooooddyyyyy.netlify.app/",
