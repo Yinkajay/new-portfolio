@@ -1,28 +1,29 @@
-import React from 'react'
-import { Link, NavLink } from 'react-router-dom'
+const socialLinks = [
+  { label: 'LinkedIn', icon: 'linkedin', href: 'https://www.linkedin.com/in/yinka-junaid-a9a654171/' },
+  { label: 'GitHub', icon: 'github', href: 'https://github.com/Yinkajay' },
+  { label: 'Behance', icon: 'behance', href: 'https://www.behance.net/yinkajunaid' },
+  { label: 'Hashnode', icon: 'hashnode', href: 'https://adeyinka.hashnode.dev/' },
+]
 
-const Footer = () => {
-    return (
-        <footer className='absolute h-20 max-w-screen-2xl mx-auto left-0 right-0 bg-aber-300 max-mobile:flex-col bottom-0 p-8 flex justify-center gap-5 max-mobile:gap-2'>
-            <ul className='flex gap-3 md:gap-5 max-mobile:mx-auto'>
-                <li>
-                    <Link className='underline' to='https://www.linkedin.com/in/yinka-junaid-a9a654171/'>LinkedIn</Link>
-                </li>
-                <li>
-                    <Link className='underline' to='https://github.com/Yinkajay'>Github</Link>
-                </li>
-                <li>
-                    <Link className='underline' to='https://x.com/zeuslgndd'>Twitter</Link>
-                </li>
-                <li>
-                    <Link className='underline' to={'https://adeyinka.hashnode.dev/'}>Hashnode</Link>
-                </li>
-            </ul>
-            <div className="max-mobile:mx-auto">
-                <p>Designed: <span className='underline'><Link to='https://mojola.notion.site/Mojola-Ojoniyi-5012964d6a1c4f958780a9d4e31a3cbe?pvs=4'>mothecreator </Link></span></p>
-            </div>
-        </footer>
-    )
+export default function Footer() {
+  return (
+    <footer className="site-footer section-shell">
+      <a className="footer-home" href="#top">YINX.</a>
+      <nav className="footer-socials" aria-label="Social links">
+        {socialLinks.map((link) => (
+          <a key={link.label} href={link.href} target="_blank" rel="noreferrer" aria-label={link.label} title={link.label}>
+            {link.icon === 'linkedin' ? (
+              <svg viewBox="0 0 24 24" aria-hidden="true">
+                <path fill="currentColor" d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.35V9h3.414v1.561h.049c.476-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 1 1 0-4.124 2.062 2.062 0 0 1 0 4.124zM3.56 9h3.553v11.452H3.56zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z" />
+              </svg>
+            ) : (
+              <img src={`https://cdn.simpleicons.org/${link.icon}/30312d`} alt="" aria-hidden="true" loading="lazy" />
+            )}
+            <span>{link.label}</span>
+          </a>
+        ))}
+      </nav>
+      <span className="footer-credit">© Yinka Junaid</span>
+    </footer>
+  )
 }
-
-export default Footer
