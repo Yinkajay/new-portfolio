@@ -1,4 +1,4 @@
-import { useEffect, useRef } from 'react'
+import { useEffect, useRef, useState } from 'react'
 
 const skillGroups = [
   {
@@ -51,12 +51,27 @@ function CompassMark() {
   )
 }
 
+function Css3Mark() {
+  return (
+    <svg viewBox="0 0 24 24" aria-hidden="true">
+      <path fill="#1572b6" d="M4 3h16l-1.5 16L12 21l-6.5-2L4 3Z" />
+      <path fill="#fff" d="M7.2 6.5h10.1l-.2 2H9.5l.2 2h7.3l-.7 6.1-4.1 1.2-4-1.2-.3-2.8h2.2l.2 1.2 1.9.6 2-.6.2-2.5H7.9l-.7-6Z" />
+    </svg>
+  )
+}
+
 function SkillTool({ tool }) {
+  const [logoFailed, setLogoFailed] = useState(false)
+
   return (
     <li className="skill-tool">
       <span className={`skill-tool-logo${tool.logo ? ` skill-tool-logo--${tool.logo}` : ''}`} aria-hidden="true">
         {tool.logo === 'compass' ? (
           <CompassMark />
+        ) : tool.slug === 'css3' ? (
+          <Css3Mark />
+        ) : logoFailed ? (
+          <span className="skill-tool-fallback">{tool.name.slice(0, 1)}</span>
         ) : (
           <img
             src={`https://cdn.simpleicons.org/${tool.slug}`}
@@ -64,6 +79,7 @@ function SkillTool({ tool }) {
             loading="lazy"
             decoding="async"
             referrerPolicy="no-referrer"
+            onError={() => setLogoFailed(true)}
           />
         )}
       </span>

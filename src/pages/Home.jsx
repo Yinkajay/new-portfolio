@@ -33,6 +33,18 @@ const projects = [
     note: 'AI tools for creative work.',
   },
   {
+    title: 'MC Connect',
+    category: 'Business website',
+    stack: ['React', 'JavaScript'],
+    live: 'https://connect.markcalthers.com/',
+    repo: '',
+    theme: 'connect',
+    mark: 'MC\nCONNECT',
+    note: 'A website for MC Connect.',
+    previewWidth: 1040,
+    previewCrop: 550,
+  },
+  {
     title: 'Bloody Civilian fansite',
     category: 'Music and culture',
     stack: ['Next.js', 'JavaScript', 'CSS'],
@@ -41,16 +53,8 @@ const projects = [
     theme: 'civilian',
     mark: 'BLOODY\nCIVILIAN',
     note: 'A fan page for Bloody Civilian.',
-  },
-  {
-    title: 'Task Manager',
-    category: 'Productivity app',
-    stack: ['React', 'TypeScript', 'CSS'],
-    live: 'https://schoolinkatask.netlify.app/',
-    repo: 'https://github.com/Yinkajay/Activity-Planner',
-    theme: 'tasks',
-    mark: 'TODAY',
-    note: 'An activity planner for the day.',
+    previewWidth: 1200,
+    previewCrop: 630,
   },
 ]
 
@@ -69,20 +73,76 @@ const moreProjects = [
     live: 'https://shoppa-app-vue3.web.app/login',
     repo: 'https://github.com/Yinkajay/Product-Auth',
   },
-  {
-    title: 'Call Center Agency',
-    type: 'Business website',
-    detail: 'React · JavaScript',
-    live: 'https://connect.markcalthers.com',
-    repo: '',
-  },
 ]
 
 const capabilities = [
-  ['Interface development', 'Responsive web experiences built with care for the small details.'],
-  ['Frontend systems', 'Reusable components and code that stays understandable as products grow.'],
-  ['Product collaboration', 'Working closely with design and product to make ideas real.'],
+  {
+    area: 'Frontend',
+    title: 'Interfaces people can use',
+    description: 'Responsive, accessible product experiences built from clear interactions and reusable components.',
+    tags: ['React', 'Next.js', 'TypeScript', 'Tailwind CSS'],
+    icon: 'interface',
+  },
+  {
+    area: 'Backend',
+    title: 'Services behind the screen',
+    description: 'APIs, server-side logic, and data flows that connect product experiences to the information they need.',
+    tags: ['Node.js', 'MongoDB', 'Postman'],
+    icon: 'backend',
+  },
+  {
+    area: 'Product design',
+    title: 'Clear journeys and direction',
+    description: 'Turning early ideas into user flows, wireframes, and interface direction that teams can build from.',
+    tags: ['Figma', 'User flows', 'Wireframes'],
+    icon: 'design',
+  },
+  {
+    area: 'UX testing',
+    title: 'Thoughtful quality checks',
+    description: 'Reviewing key flows across devices for clarity, accessibility, and edge cases, then refining what feels off.',
+    tags: ['Usability checks', 'Accessibility', 'Responsive QA'],
+    icon: 'testing',
+  },
 ]
+
+function CapabilityIcon({ type }) {
+  if (type === 'interface') {
+    return (
+      <svg viewBox="0 0 32 32" fill="none" aria-hidden="true">
+        <rect x="3.5" y="5.5" width="25" height="20" rx="2" />
+        <path d="M4 11h24M9 8.5h.01M12.5 8.5h.01M16 8.5h.01M12 29h8M16 25.5V29" />
+      </svg>
+    )
+  }
+
+  if (type === 'backend') {
+    return (
+      <svg viewBox="0 0 32 32" fill="none" aria-hidden="true">
+        <rect x="5" y="4.5" width="22" height="9" rx="2" />
+        <rect x="5" y="18.5" width="22" height="9" rx="2" />
+        <path d="M9 9h.01M9 23h.01M13 9h9M13 23h9" />
+      </svg>
+    )
+  }
+
+  if (type === 'design') {
+    return (
+      <svg viewBox="0 0 32 32" fill="none" aria-hidden="true">
+        <rect x="4.5" y="4.5" width="23" height="23" rx="2" />
+        <path d="m9 22.5 1.3-4.1 9.8-9.8 4.1 4.1-9.8 9.8L9 22.5Z" />
+        <path d="m18.6 10.1 4.1 4.1" />
+      </svg>
+    )
+  }
+
+  return (
+    <svg viewBox="0 0 32 32" fill="none" aria-hidden="true">
+      <circle cx="14" cy="14" r="9" />
+      <path d="m20.5 20.5 6.5 6.5M10 14.2l2.6 2.6 5.4-5.5" />
+    </svg>
+  )
+}
 
 function HeroIllustration() {
   return (
@@ -91,10 +151,6 @@ function HeroIllustration() {
       <div className="hero-studio-glow" aria-hidden="true" />
       <div className="hero-studio-orbit" aria-hidden="true" />
       <img className="hero-working-portrait" src="/hero-memoji-working.png" alt="Yinka's Memoji working at a desk" />
-      <div className="hero-studio-tag hero-studio-tag--top" aria-hidden="true">
-        <span className="hero-studio-tag__dot" />
-        <span>AT WORK IN LAGOS</span>
-      </div>
       <div className="hero-studio-tag hero-studio-tag--bottom" aria-hidden="true">
         <span className="hero-studio-tag__code">&lt;/&gt;</span>
         <span>Thoughtful interfaces</span>
@@ -171,7 +227,7 @@ function WordReveal({ text }) {
 
 function ProjectArt({ project }) {
   const [previewFailed, setPreviewFailed] = useState(false)
-  const previewUrl = `https://image.thum.io/get/width/1200/crop/750/noanimate/${project.live}`
+  const previewUrl = `https://image.thum.io/get/width/${project.previewWidth ?? 1200}/crop/${project.previewCrop ?? 750}/noanimate/${project.live}`
 
   return (
     <div className={`project-art project-art--${project.theme} project-art--preview`}>
@@ -245,9 +301,9 @@ export default function Home() {
       <section className="hero section-shell" id="top" aria-labelledby="hero-title">
         <div className="hero-copy">
           <Reveal>
-            <p className="eyebrow hero-eyebrow"><span>Frontend engineer</span><span className="eyebrow-divider">·</span><span>Lagos, NG</span></p>
-            <h1 id="hero-title">Thoughtful<br />interfaces.<br /><span>Solid frontend.</span></h1>
-            <p className="hero-intro">I build clear, responsive experiences for the web, with care for the interface and the code behind it.</p>
+            <p className="eyebrow hero-eyebrow"><span>Full stack developer</span><span className="eyebrow-divider">·</span><span>Lagos, NG</span></p>
+            <h1 id="hero-title">Thoughtful<br />interfaces.<br /><span>Full stack.</span></h1>
+            <p className="hero-intro">I build responsive web products across frontend and backend, from clear interfaces to the APIs and data behind them.</p>
             <div className="hero-actions">
               <a className="button button-primary" href="#work">Explore my work <span aria-hidden="true">↘</span></a>
               <a className="button button-secondary" href="https://docs.google.com/document/d/1G9KDmwkUBLW0TzVpSFavC_oDN-7F_Pwe09aKfbvkJcA/edit?tab=t.0" target="_blank" rel="noreferrer">View CV <span aria-hidden="true">↗</span></a>
@@ -303,20 +359,35 @@ export default function Home() {
             <h2 id="about-title">Good work comes<br />from staying curious.</h2>
           </div>
           <div className="about-copy">
-            <p>I’m Yinka, a frontend engineer based in Lagos. I enjoy turning early ideas into useful, carefully considered interfaces, with attention to accessibility, responsive design, and the details people notice when everything just works.</p>
+            <p>I’m Yinka, a full stack developer based in Lagos. I build thoughtful interfaces and the backend connections that make them useful, with care for accessibility, responsive design, APIs, and data flows.</p>
             <p>When I’m away from the screen, I’m usually reading, running, listening to music, or following a new thread of curiosity.</p>
             <a className="text-link resume-link" href="https://docs.google.com/document/d/1G9KDmwkUBLW0TzVpSFavC_oDN-7F_Pwe09aKfbvkJcA/edit?tab=t.0" target="_blank" rel="noreferrer">Read my résumé <span aria-hidden="true">↗</span></a>
           </div>
         </Reveal>
 
         <Reveal className="capabilities">
-          <p className="eyebrow capabilities-label">How I contribute</p>
-          {capabilities.map(([title, description]) => (
-            <div className="capability-row" key={title}>
-              <h3>{title}</h3>
-              <p>{description}</p>
+          <div className="capabilities-heading">
+            <div>
+              <p className="eyebrow capabilities-label">How I contribute</p>
+              <h3>I shape, build, and refine products.</h3>
             </div>
-          ))}
+            <p className="capabilities-intro">From early product decisions and usable interfaces to dependable APIs and thoughtful quality checks.</p>
+          </div>
+          <div className="capability-grid">
+            {capabilities.map((capability) => (
+              <article className="capability-card" key={capability.area}>
+                <div className="capability-card-topline">
+                  <span className="capability-icon"><CapabilityIcon type={capability.icon} /></span>
+                  <p className="eyebrow">{capability.area}</p>
+                </div>
+                <h4>{capability.title}</h4>
+                <p className="capability-description">{capability.description}</p>
+                <ul className="capability-tags" aria-label={`${capability.area} focus areas`}>
+                  {capability.tags.map((tag) => <li key={tag}>{tag}</li>)}
+                </ul>
+              </article>
+            ))}
+          </div>
         </Reveal>
       </section>
 

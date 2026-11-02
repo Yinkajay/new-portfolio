@@ -45,16 +45,10 @@ const Projects = () => {
       repo: "https://github.com/Yinkajay/new-portfolio"
     },
     {
-      title: "BLOODY CIVILIAN FANSITE",
-      stack: ["Next", "Framer motion", "Javascript", "HTML & CSS", "Git"],
-      livesite: "https://bloooooddyyyyy.netlify.app/",
-      repo: "https://github.com/Yinkajay/bloody-civ"
-    },
-    {
-      title: "Task Manager",
-      stack: ["React", "Typescript", "HTML & CSS", "Git"],
-      livesite: "https://schoolinkatask.netlify.app/",
-      repo: "https://github.com/Yinkajay/Activity-Planner"
+      title: "MC Connect",
+      stack: ["React", "Javascript", "HTML & CSS", "Git"],
+      livesite: "https://connect.markcalthers.com/",
+      repo: ""
     },
     {
       title: "Creative Studio Wesbite",
@@ -69,10 +63,10 @@ const Projects = () => {
       repo: "https://github.com/Yinkajay/Product-Auth"
     },
     {
-      title: "Call Center Agency",
-      stack: ["React", "Javascript", "HTML & CSS", "Git"],
-      livesite: "https://connect.markcalthers.com",
-      repo: ""
+      title: "BLOODY CIVILIAN FANSITE",
+      stack: ["Next", "Framer motion", "Javascript", "HTML & CSS", "Git"],
+      livesite: "https://bloooooddyyyyy.netlify.app/",
+      repo: "https://github.com/Yinkajay/bloody-civ"
     }
   ];
 

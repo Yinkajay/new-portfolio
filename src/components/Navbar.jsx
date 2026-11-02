@@ -114,7 +114,7 @@ export default function Navbar() {
       {isOpen && (
         <nav className="mobile-menu" id="mobile-menu" ref={mobileMenuRef} aria-label="Mobile navigation">
           <div className="mobile-menu-top">
-            <span className="eyebrow">Yinka Junaid / Frontend engineer</span>
+            <span className="eyebrow">Yinka Junaid / Full stack developer</span>
             <span className="eyebrow">Menu</span>
           </div>
           <div className="mobile-menu-links">
