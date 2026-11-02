@@ -1,5 +1,16 @@
 import { useEffect, useRef, useState } from 'react'
 import SkillsSection from '../components/SkillsSection'
+import bloodyCivilianHomepage from '../assets/bloody-civilian-homepage.png'
+import heroOption01 from '../assets/option-1.png'
+import heroOption02 from '../assets/option-2.png'
+import heroOption03 from '../assets/option-3.png'
+
+const heroImageOptions = {
+  option01: heroOption01,
+  option02: heroOption02,
+  option03: heroOption03,
+}
+const selectedHeroImage = heroImageOptions.option01
 
 const projects = [
   {
@@ -53,8 +64,7 @@ const projects = [
     theme: 'civilian',
     mark: 'BLOODY\nCIVILIAN',
     note: 'A fan page for Bloody Civilian.',
-    previewWidth: 1200,
-    previewCrop: 630,
+    previewImage: bloodyCivilianHomepage,
   },
 ]
 
@@ -150,10 +160,10 @@ function HeroIllustration() {
       <div className="hero-studio-grid" aria-hidden="true" />
       <div className="hero-studio-glow" aria-hidden="true" />
       <div className="hero-studio-orbit" aria-hidden="true" />
-      <img className="hero-working-portrait" src="/hero-memoji-working.png" alt="Yinka's Memoji working at a desk" />
+      <img className="hero-working-portrait" src={selectedHeroImage} alt="Yinka working at a desk" />
       <div className="hero-studio-tag hero-studio-tag--bottom" aria-hidden="true">
         <span className="hero-studio-tag__code">&lt;/&gt;</span>
-        <span>Thoughtful interfaces</span>
+        <span>Interface to API</span>
       </div>
     </div>
   )
@@ -240,7 +250,7 @@ function ProjectArt({ project }) {
       ) : (
         <img
           className="project-preview-image"
-          src={previewUrl}
+          src={project.previewImage ?? previewUrl}
           alt={`${project.title} homepage`}
           loading="lazy"
           decoding="async"
@@ -302,8 +312,8 @@ export default function Home() {
         <div className="hero-copy">
           <Reveal>
             <p className="eyebrow hero-eyebrow"><span>Full stack developer</span><span className="eyebrow-divider">·</span><span>Lagos, NG</span></p>
-            <h1 id="hero-title">Thoughtful<br />interfaces.<br /><span>Full stack.</span></h1>
-            <p className="hero-intro">I build responsive web products across frontend and backend, from clear interfaces to the APIs and data behind them.</p>
+            <h1 id="hero-title">From the first<br />screen to the<br /><span>systems behind it.</span></h1>
+            <p className="hero-intro">I build responsive web products, pairing clear interfaces with dependable APIs and data.</p>
             <div className="hero-actions">
               <a className="button button-primary" href="#work">Explore my work <span aria-hidden="true">↘</span></a>
               <a className="button button-secondary" href="https://docs.google.com/document/d/1G9KDmwkUBLW0TzVpSFavC_oDN-7F_Pwe09aKfbvkJcA/edit?tab=t.0" target="_blank" rel="noreferrer">View CV <span aria-hidden="true">↗</span></a>
