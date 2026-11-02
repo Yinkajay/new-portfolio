@@ -79,38 +79,25 @@ const moreProjects = [
 ]
 
 const capabilities = [
-  ['01', 'Interface development', 'Responsive web experiences built with care for the small details.'],
-  ['02', 'Frontend systems', 'Reusable components and code that stays understandable as products grow.'],
-  ['03', 'Product collaboration', 'Working closely with design and product to make ideas real.'],
+  ['Interface development', 'Responsive web experiences built with care for the small details.'],
+  ['Frontend systems', 'Reusable components and code that stays understandable as products grow.'],
+  ['Product collaboration', 'Working closely with design and product to make ideas real.'],
 ]
 
 function HeroIllustration() {
   return (
-    <div className="hero-illustration" role="img" aria-label="Layered browser windows with a geometric interface study">
-      <div className="illustration-yellow-block" />
-      <div className="illustration-dot-field" />
-      <div className="browser-window browser-window--back">
-        <div className="browser-bar"><span /><span /><span /><div /></div>
-        <div className="browser-body browser-body--back">
-          <div className="browser-copy">
-            <strong>Ideas<br />into useful<br />interfaces.</strong>
-            <span className="fake-line fake-line--short" />
-            <span className="fake-line" />
-            <span className="fake-action" />
-          </div>
-          <div className="browser-picture browser-picture--facets"><span /></div>
-        </div>
+    <div className="hero-illustration">
+      <div className="hero-studio-grid" aria-hidden="true" />
+      <div className="hero-studio-glow" aria-hidden="true" />
+      <div className="hero-studio-orbit" aria-hidden="true" />
+      <img className="hero-working-portrait" src="/hero-memoji-working.png" alt="Yinka's Memoji working at a desk" />
+      <div className="hero-studio-tag hero-studio-tag--top" aria-hidden="true">
+        <span className="hero-studio-tag__dot" />
+        <span>AT WORK IN LAGOS</span>
       </div>
-      <div className="browser-window browser-window--front">
-        <div className="browser-bar"><span /><span /><span /><div /></div>
-        <div className="browser-body browser-body--front">
-          <div className="browser-sidebar"><span /><span /><span /></div>
-          <div className="browser-panel">
-            <div className="browser-panel__hero"><span /><span /><span /></div>
-            <div className="browser-panel__lines"><span /><span /><span /></div>
-          </div>
-          <div className="browser-picture browser-picture--sculpture"><span /></div>
-        </div>
+      <div className="hero-studio-tag hero-studio-tag--bottom" aria-hidden="true">
+        <span className="hero-studio-tag__code">&lt;/&gt;</span>
+        <span>Thoughtful interfaces</span>
       </div>
     </div>
   )
@@ -183,27 +170,40 @@ function WordReveal({ text }) {
 }
 
 function ProjectArt({ project }) {
+  const [previewFailed, setPreviewFailed] = useState(false)
+  const previewUrl = `https://image.thum.io/get/width/1200/crop/750/noanimate/${project.live}`
+
   return (
-    <div className={`project-art project-art--${project.theme}`} aria-hidden="true">
-      <div className="art-topline"><span>SELECTED WORK</span><span>LAGOS / NIGERIA</span></div>
-      <div className="art-center">
-        <span className="art-mark">{project.mark}</span>
-        <span className="art-note">{project.note}</span>
-      </div>
-      <div className="art-bottomline"><span>FRONTEND ENGINEERING</span><span>↗</span></div>
-      <span className="art-orbit" />
+    <div className={`project-art project-art--${project.theme} project-art--preview`}>
+      {previewFailed ? (
+        <div className="project-preview-fallback">
+          <span className="eyebrow">Homepage preview</span>
+          <strong>{project.mark}</strong>
+          <span>Open live site ↗</span>
+        </div>
+      ) : (
+        <img
+          className="project-preview-image"
+          src={previewUrl}
+          alt={`${project.title} homepage`}
+          loading="lazy"
+          decoding="async"
+          referrerPolicy="no-referrer"
+          onError={() => setPreviewFailed(true)}
+        />
+      )}
     </div>
   )
 }
 
-function ProjectCard({ project, index }) {
+function ProjectCard({ project }) {
   return (
     <article className="project-card">
       <a className="project-link" href={project.live} target="_blank" rel="noreferrer">
         <ProjectArt project={project} />
         <div className="project-card__heading">
           <div>
-            <p className="eyebrow project-category">0{index + 1} / {project.category}</p>
+            <p className="eyebrow project-category">{project.category}</p>
             <h3>{project.title}</h3>
           </div>
           <span className="project-arrow" aria-hidden="true">↗</span>
@@ -271,16 +271,16 @@ export default function Home() {
       <section className="work-section section-shell" id="work" aria-labelledby="work-title">
         <Reveal className="section-heading">
           <div>
-            <p className="eyebrow">01 / Selected work</p>
+            <p className="eyebrow">Selected work</p>
             <h2 id="work-title">Built for people<br />and the things they do.</h2>
           </div>
           <p className="section-intro">A selection of web experiences I’ve helped bring to life, from useful tools to places built around culture.</p>
         </Reveal>
 
         <div className="project-grid">
-          {projects.map((project, index) => (
+          {projects.map((project) => (
             <Reveal key={project.title} className="project-reveal">
-              <ProjectCard project={project} index={index} />
+              <ProjectCard project={project} />
             </Reveal>
           ))}
         </div>
@@ -299,7 +299,7 @@ export default function Home() {
       <section className="about-section section-shell" id="about" aria-labelledby="about-title">
         <Reveal className="about-intro">
           <div>
-            <p className="eyebrow">02 / A little about me</p>
+            <p className="eyebrow">A little about me</p>
             <h2 id="about-title">Good work comes<br />from staying curious.</h2>
           </div>
           <div className="about-copy">
@@ -311,9 +311,8 @@ export default function Home() {
 
         <Reveal className="capabilities">
           <p className="eyebrow capabilities-label">How I contribute</p>
-          {capabilities.map(([number, title, description]) => (
-            <div className="capability-row" key={number}>
-              <span className="capability-number">{number}</span>
+          {capabilities.map(([title, description]) => (
+            <div className="capability-row" key={title}>
               <h3>{title}</h3>
               <p>{description}</p>
             </div>
@@ -324,7 +323,7 @@ export default function Home() {
       <section className="contact-section section-shell" id="contact" aria-labelledby="contact-title">
         <Reveal className="contact-inner">
           <div>
-            <p className="eyebrow">03 / Contact</p>
+            <p className="eyebrow">Contact</p>
             <h2 id="contact-title">Have something<br />good in mind?</h2>
           </div>
           <div className="contact-copy">
