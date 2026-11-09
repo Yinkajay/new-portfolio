@@ -1,16 +1,6 @@
 import { useEffect, useRef, useState } from 'react'
 import SkillsSection from '../components/SkillsSection'
 import bloodyCivilianHomepage from '../assets/bloody-civilian-homepage.png'
-import heroOption01 from '../assets/option-1.png'
-import heroOption02 from '../assets/option-2.png'
-import heroOption03 from '../assets/option-3.png'
-
-const heroImageOptions = {
-  option01: heroOption01,
-  option02: heroOption02,
-  option03: heroOption03,
-}
-const selectedHeroImage = heroImageOptions.option01
 
 const projects = [
   {
@@ -157,9 +147,7 @@ function CapabilityIcon({ type }) {
 function HeroIllustration() {
   return (
     <div className="hero-illustration">
-      <div className="hero-studio-glow" aria-hidden="true" />
-      <div className="hero-studio-orbit" aria-hidden="true" />
-      <img className="hero-working-portrait" src={selectedHeroImage} alt="Yinka working at a desk" />
+      <portfolio-room controls="" />
     </div>
   )
 }
@@ -311,7 +299,6 @@ export default function Home() {
             <p className="hero-intro">I build responsive web products, pairing clear interfaces with dependable APIs and data.</p>
             <div className="hero-actions">
               <a className="button button-primary" href="#work">Explore my work <span aria-hidden="true">↘</span></a>
-              <a className="button button-secondary" href="https://docs.google.com/document/d/1G9KDmwkUBLW0TzVpSFavC_oDN-7F_Pwe09aKfbvkJcA/edit?tab=t.0" target="_blank" rel="noreferrer">View CV <span aria-hidden="true">↗</span></a>
             </div>
           </Reveal>
         </div>
