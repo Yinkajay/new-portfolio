@@ -157,14 +157,9 @@ function CapabilityIcon({ type }) {
 function HeroIllustration() {
   return (
     <div className="hero-illustration">
-      <div className="hero-studio-grid" aria-hidden="true" />
       <div className="hero-studio-glow" aria-hidden="true" />
       <div className="hero-studio-orbit" aria-hidden="true" />
       <img className="hero-working-portrait" src={selectedHeroImage} alt="Yinka working at a desk" />
-      <div className="hero-studio-tag hero-studio-tag--bottom" aria-hidden="true">
-        <span className="hero-studio-tag__code">&lt;/&gt;</span>
-        <span>Interface to API</span>
-      </div>
     </div>
   )
 }
@@ -410,6 +405,13 @@ export default function Home() {
           <div className="contact-copy">
             <p>I’d like to hear what you’re working on. Tell me a little about it and let’s start a conversation.</p>
             <a className="contact-email" href="mailto:yinkajunaid@ymail.com">yinkajunaid@ymail.com <span aria-hidden="true">↗</span></a>
+            <a className="contact-linkedin" href="https://www.linkedin.com/in/yinka-junaid-a9a654171/" target="_blank" rel="noreferrer">
+              <svg viewBox="0 0 24 24" aria-hidden="true">
+                <path fill="currentColor" d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.35V9h3.414v1.561h.049c.476-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 1 1 0-4.124 2.062 2.062 0 0 1 0 4.124zM3.56 9h3.553v11.452H3.56zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z" />
+              </svg>
+              <span>Connect on LinkedIn</span>
+              <span aria-hidden="true">↗</span>
+            </a>
           </div>
         </Reveal>
       </section>
